@@ -11,6 +11,7 @@ namespace CardGames
             Bitmap cards;
             cards = SwinGame.LoadBitmapNamed ("Cards", "Cards.png");
             SwinGame.BitmapSetCellDetails (cards, 82, 110, 13, 5, 53);      // set the cells in the bitmap to match the cards
+			SwinGame.LoadFontNamed ("Gamefont", "chunkfive.otf", 24);
         }
 
 		/// <summary>
@@ -46,19 +47,20 @@ namespace CardGames
 		private static void DrawGame(Snap myGame)
 		{
 			SwinGame.DrawBitmap("cardsBoard.png", 0, 0);
+			SwinGame.DrawText ("" + myGame.Score (0), Color.Black, "Gamefont", 0, 70);
 
 			// Draw the top card
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.Black, 0, 0);
-				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.Black, 0, 10);
-				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.Black, 0, 20);
+				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.Black,"Gamefont", 0, 0);
+				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.Black,"Gamefont", 0, 20);
+				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.Black,"Gamefont", 0, 40);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 570, 223);
 			}
 			else
 			{
-				SwinGame.DrawText ("No card played yet...", Color.Black, 0, 0);
+				SwinGame.DrawText ("No card played yet...", Color.Black,"Gamefont", 0, 0);
 			}
 
 			// Draw the back of the cards... to represent the deck
