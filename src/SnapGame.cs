@@ -31,11 +31,18 @@ namespace CardGames
 			if (myGame.IsStarted) {
 
 				if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT) && SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
+					SwinGame.LoadSoundEffectNamed ("Collide", "collide.wav");
+					SwinGame.PlaySoundEffect ("Collide");
 
 				} else if (SwinGame.KeyTyped (KeyCode.vk_LSHIFT)) {
 					myGame.PlayerHit (0);
+					SwinGame.LoadSoundEffectNamed ("Snap", "snapping.wav");
+					SwinGame.PlaySoundEffect ("Snap");
+
 				} else if (SwinGame.KeyTyped (KeyCode.vk_RSHIFT)) {
 					myGame.PlayerHit (1);
+					SwinGame.LoadSoundEffectNamed ("Break", "break.wav");
+					SwinGame.PlaySoundEffect ("Break");
 				}
 			}
 		}
