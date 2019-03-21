@@ -54,15 +54,16 @@ namespace CardGames
 		private static void DrawGame(Snap myGame)
 		{
 			SwinGame.DrawBitmap("cardsBoard.png", 0, 0);
-			SwinGame.DrawText ("" + myGame.Score (0), Color.Black, "Gamefont", 0, 70);
+			SwinGame.DrawText ("" + myGame.Score (0), Color.Black, "Gamefont", 0, 40);
+			SwinGame.DrawText ("" + myGame.Score (1), Color.Black, "Gamefont", 665, 40);
 
 			// Draw the top card
 			Card top = myGame.TopCard;
 			if (top != null)
 			{
-				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.Black,"Gamefont", 0, 0);
+				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.Black,"Gamefont", 325, 0);
 				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.Black,"Gamefont", 0, 20);
-				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.Black,"Gamefont", 0, 40);
+				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.Black,"Gamefont", 665, 20);
 				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 570, 223);
 			}
 			else
